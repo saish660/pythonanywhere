@@ -1,0 +1,54 @@
+{% extends 'network/layout.html' %}
+{% block body %}
+    <div class="user-details">
+        <div>
+            <h2>{{ requested_user.username }}</h2>
+            {% if is_superuser %}
+                <div class="profile-tag">Superuser</div>
+            {% endif %}
+        </div>
+        <div>
+            <span class="user-metrics">{{ followers_count }} followers</span>
+            <span class="user-metrics">{{ following_count }} following</span>
+            {% if user.is_authenticated and user != requested_user %}
+                <a href="{% url 'toggle_follow' requested_user.username %}" class="follow-btn">{{ action }}</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="user-posts">
+        <h4>Posts</h4>
+        {% for post in page %}
+        <div class="post-card" data-id="{{ post.id }}">
+            <div class="post-details">
+                <div class="user-details-div">
+                    <a class="username" href="{% url 'profile' post.user.username %}">{{ post.user.username }}</a>
+                    {% if post.user.is_superuser %}
+                        <span class="post-user-tag">Superuser</span>
+                    {% endif %}
+                </div>
+                <div>
+                    {% if user == post.user %}
+                        <button class="post-edit-button">Edit ✏️</button>
+                    {% endif %}
+                    <span class="timestamp">{{ post.timestamp }}</span>
+                </div>
+            </div>
+            <div class="post-message">{{ post.message }}</div>
+            <div>
+                <button class="like-button">❤️ <span class="like-count">{{ post.likes.all.count }}</span></button>
+            </div>
+        </div>
+    {% empty %}
+        <p>No posts yet</p> 
+    {% endfor %}
+    </div>
+    <div class="pagination-buttons-div">
+        {% if page.has_previous %}
+            <a href="{% url 'profile' requested_user.username %}?page_num={{ page.previous_page_number }}" class="pagination-buttons">Previous</a>
+        {% endif %}
+        {% if page.has_next %}
+            <a href="{% url 'profile' requested_user.username %}?page_num={{ page.next_page_number }}" class="pagination-buttons">Next</a>
+        {% endif %}
+    </div>
+
+{% endblock %}

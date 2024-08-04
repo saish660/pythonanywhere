@@ -1,0 +1,12 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+    {% if user.is_authenticated %}
+        <form action="create_post" method="post">
+            {% csrf_token %}
+            <textarea name="message" rows="2"></textarea>
+            <input type="submit" value="Post" class="submit-btn">
+        </form>
+    {% endif %}
+    
+{% endblock %}

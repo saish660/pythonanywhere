@@ -1,0 +1,43 @@
+{% extends 'network/layout.html' %}
+
+{% block body %}
+    {% for post in page %}
+        <div class="post-card" data-id="{{ post.id }}">
+            <div class="post-details">
+                <div class="user-details-div">
+                    <a class="username" href="{% url 'profile' post.user.username %}">{{ post.user.username }}</a>
+                    {% if post.user.is_superuser %}
+                        <span class="post-user-tag">Superuser</span>
+                    {% endif %}
+                </div>
+                <div>
+                    {% if user == post.user %}
+                        <button class="post-edit-button">Edit ✏️</button>
+                    {% endif %}
+                    <span class="timestamp">{{ post.timestamp }}</span>
+                </div>
+            </div>
+            <div class="post-message">{{ post.message }}</div>
+            <div>
+                <button class="like-button like-count">
+                    {% if request.user in post.likes.all %}
+                        ❤️
+                    {% else %}
+                        🩶
+                    {% endif %}
+                    {{ post.likes.all.count }}
+                </button>
+            </div>
+        </div>
+    {% empty %}
+        <p>No posts yet</p> 
+    {% endfor %}
+    <div class="pagination-buttons-div">
+        {% if page.has_previous %}
+            <a href="{% url 'all_posts' %}?page_num={{ page.previous_page_number }}" class="pagination-buttons">Previous</a>
+        {% endif %}
+        {% if page.has_next %}
+            <a href="{% url 'all_posts' %}?page_num={{ page.next_page_number }}" class="pagination-buttons">Next</a>
+        {% endif %}
+    </div>
+{% endblock %}

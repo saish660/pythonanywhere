@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* border: 1px solid red; */
+}
+
+body {
+    font-size: 16px;
+}
+
+p {
+    margin: 0;
+}
+
+form {
+    margin: 20px 0;
+}
+
+form textarea {
+    display: block;
+    width: 80%;
+    padding: 10px;
+    margin: auto;
+    border: none;
+    border-radius: 25px;
+    background-color: rgb(236, 236, 236);
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    margin: 5px 0 0 11%;
+    border-radius: 25px;
+    border: none;
+    background-color: rgb(117, 202, 255);
+}
+
+.post-card {
+    border: 1px solid grey;
+    border-radius: 25px;
+    width: 80%;
+    margin: 10px auto;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.post-card .post-details {
+    color: rgb(133, 133, 133);
+
+}
+
+.post-card .username {
+    color: rgb(92, 92, 92);
+    margin: 0 10px 0 0;
+}
+
+.post-user-tag {
+    background: linear-gradient(45deg, rgb(18, 101, 255), rgb(142, 0, 194));
+    color: white;
+    padding: 2px 20px;
+    border-radius: 20px;
+}
+
+.user-details-div {
+    float: left;
+}
+
+.post-card .timestamp {
+    float: right;
+}
+
+.post-message {
+    margin: 10px 0;
+}
+
+.like-button {
+    display: inline-block;
+    border: none;
+    background: rgb(255, 236, 236);
+    padding: 5px 10px;
+    border-radius: 25px;
+}
+
+.user-details {
+    width: 50%;
+    margin: 10px auto;
+    background: rgb(205, 239, 255);
+    text-align: center;
+    padding: 40px 0;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+.user-metrics {
+    margin: 0 10px;
+}
+
+.user-posts {
+    margin: 20px 0 0 0;
+}
+
+.user-posts h4{
+    text-align: center;
+}
+
+.follow-btn {
+    display: inline-block;
+    background-color: white;
+    border-radius: 25px;
+    padding: 10px 20px;
+}
+
+.profile-tag {
+    background: linear-gradient(45deg, rgb(18, 101, 255), rgb(142, 0, 194));
+    color: white;
+    padding: 5px 20px;
+    border-radius: 25px;
+    display: inline-block;
+}
+
+.pagination-buttons-div {
+    display: flex;
+    justify-content: center;
+}
+
+.pagination-buttons {
+    text-decoration: none;
+    background-color: rgb(86, 185, 255);
+    color: black;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin: 0 10px;
+}
+
+.post-edit-button {
+    border: none;
+    background-color: white;
+    color: grey;
+
+}
+
+.post-textarea {
+    width: 100%;
+    border: none;
+    background: rgba(147, 208, 255, 0.245);
+    border-radius: 25px;
+    padding: 10px 20px;
+}
+
+.save-post-btn {
+    border: none;
+    background:rgb(162, 216, 255);
+    color: blue;
+    padding: 10px 20px;
+    border-radius: 25px;
+}
